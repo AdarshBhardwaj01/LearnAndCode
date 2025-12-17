@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Learn and Code\\Week 1\\Country-Code\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B14F39DF-BA90-4514-A92C-747F594C8C7A}|Country-Code\\Country-Code.csproj|d:\\learn and code\\week 1\\country-code\\country-code\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B14F39DF-BA90-4514-A92C-747F594C8C7A}|Country-Code\\Country-Code.csproj|solutionrelative:country-code\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Learn and Code\\Week 1\\Country-Code\\Country-Code\\Program.cs",
+              "RelativeDocumentMoniker": "Country-Code\\Program.cs",
+              "ToolTip": "D:\\Learn and Code\\Week 1\\Country-Code\\Country-Code\\Program.cs",
+              "RelativeToolTip": "Country-Code\\Program.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBIAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T15:34:44.951Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
