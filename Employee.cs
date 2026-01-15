@@ -13,31 +13,33 @@ public class Employee
         this.working = working;
     }
 
-    public bool IsWorking()
+    public bool IsWorking() => working;
+
+    public void Terminate() => working = false;
+}
+
+// Persistence layer
+public class EmployeeRepository
+{
+    public void Save(Employee employee)
     {
-        return working;
+        Console.WriteLine($"Saving employee {employee.Name} to database.");
+    }
+}
+
+// Reporting layer
+public class EmployeeReportService
+{
+    public void PrintCSV(Employee employee)
+    {
+        Console.WriteLine($"{employee.Id},{employee.Name},{employee.Department},{(employee.IsWorking() ? "Working" : "Terminated")}");
     }
 
-    public void TerminateEmployee()
-    {
-        working = false;
-    }
-
-    public void SaveEmployeeToDatabase()
-    {
-        Console.WriteLine($"Saving employee {Name} to database.");
-    }
-
-    public void PrintEmployeeDetailReportCSV()
-    {
-        Console.WriteLine($"{Id},{Name},{Department},{(working ? "Working" : "Terminated")}");
-    }
-
-    public void PrintEmployeeDetailReportXML()
+    public void PrintXML(Employee employee)
     {
         Console.WriteLine($"<Employee>\n" +
-                          $"  <ID>{Id}</ID>\n" +
-                          $"  <Status>{(working ? "Working" : "Terminated")}</Status>\n" +
+                          $"  <ID>{employee.Id}</ID>\n" +
+                          $"  <Status>{(employee.IsWorking() ? "Working" : "Terminated")}</Status>\n" +
                           $"</Employee>");
     }
 }
@@ -48,11 +50,14 @@ public class Program
     {
         Employee emp = new Employee(101, "John Doe", "IT");
 
-        emp.SaveEmployeeToDatabase();
-        emp.PrintEmployeeDetailReportCSV();
-        emp.PrintEmployeeDetailReportXML();
+        var repository = new EmployeeRepository();
+        var reportService = new EmployeeReportService();
 
-        emp.TerminateEmployee();
+        repository.Save(emp);
+        reportService.PrintCSV(emp);
+        reportService.PrintXML(emp);
+
+        emp.Terminate();
         Console.WriteLine($"Is working? {emp.IsWorking()}");
     }
 }
