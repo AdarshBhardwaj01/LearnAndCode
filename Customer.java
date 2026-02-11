@@ -8,10 +8,6 @@ public class Customer {
     public Wallet getWallet(){ return myWallet; }
 
     public boolean pay(double amount) {
-        if (myWallet.getTotalMoney() >= amount) {
-            myWallet.subtractMoney(amount);
-            return true;
-        }
-        return false;
+        return myWallet.withdraw(amount);
     }
 }
