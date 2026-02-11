@@ -5,7 +5,6 @@ public class Customer {
 
     public String getFirstName(){ return firstName; }
     public String getLastName(){ return lastName; }
-    public Wallet getWallet(){ return myWallet; }
 
     public boolean pay(double amount) {
         return myWallet.withdraw(amount);
