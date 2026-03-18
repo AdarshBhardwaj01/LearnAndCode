@@ -6,11 +6,14 @@ namespace DivisorLib
         {
             int divisorCount = 0;
 
-            for (int potentialDivisor = 1; potentialDivisor <= number; potentialDivisor++)
+            for (int potentialDivisor = 1; potentialDivisor * potentialDivisor <= number; potentialDivisor++)
             {
                 if (number % potentialDivisor == 0)
                 {
-                    divisorCount++;
+                    if (potentialDivisor * potentialDivisor == number)
+                        divisorCount += 1;
+                    else
+                        divisorCount += 2;
                 }
             }
 
@@ -19,17 +22,23 @@ namespace DivisorLib
 
         public static int CountNumbersWithEqualAdjacentDivisors(int upperLimit)
         {
+            if (upperLimit <= 2)
+                return 0;
+
             int validCount = 0;
 
-            for (int currentNumber = 2; currentNumber < upperLimit; currentNumber++)
-            {
-                int currentDivisors = GetDivisorCount(currentNumber);
-                int nextDivisors = GetDivisorCount(currentNumber + 1);
+            int previousNumberDivisorCount = GetDivisorCount(2);
 
-                if (currentDivisors == nextDivisors)
+            for (int currentNumber = 3; currentNumber <= upperLimit; currentNumber++)
+            {
+                int currentNumberDivisorCount = GetDivisorCount(currentNumber);
+
+                if (currentNumberDivisorCount == previousNumberDivisorCount)
                 {
                     validCount++;
                 }
+
+                previousNumberDivisorCount = currentNumberDivisorCount;
             }
 
             return validCount;
