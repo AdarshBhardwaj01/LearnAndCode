@@ -3,12 +3,13 @@ using DivisorLib;
 
 namespace DivisorTests
 {
-    public class Tests
+    public class DivisorCounterTests
     {
         [Fact]
-        public void Example_Test()
+        public void ShouldReturnTwoForInputFifteen()
         {
-            Assert.Equal(2, DivisorCounter.CountValidN(15));
+            int result = DivisorCounter.CountNumbersWithEqualAdjacentDivisors(15);
+            Assert.Equal(2, result);
         }
     }
 }
