@@ -1,10 +1,18 @@
-private Dictionary<string, IExporter> exporters = new Dictionary<string, IExporter>
-{
-    {"json", new JsonExporter()},
-    {"xml", new XmlExporter()}
-};
+private Logger logger = new Logger();
+private StatisticsCalculator stats = new StatisticsCalculator();
 
-public void Export(string path, string format)
+public void ProcessData()
 {
-    exporters[format].Export(path, parsedRecords);
+    logger.Log("Processing started");
+
+    var raw = reader.Read("input.csv");
+    parsedRecords = parser.Parse(raw);
+
+    if (ValidateData)
+        parsedRecords = validator.Validate(parsedRecords, ref errorCount);
+
+    var statistics = stats.Calculate(parsedRecords, errorCount);
+
+    logger.Log("Processing completed");
+    logger.Save("log.txt");
 }
